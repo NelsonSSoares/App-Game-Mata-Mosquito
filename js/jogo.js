@@ -33,7 +33,7 @@ function posicaoRandomica(){
     mosquito.src = 'images/mosca.png';
 
     //Aplica uma class criada na folha de estilo
-    mosquito.className = 'mosquito1';
+    mosquito.className = tamanhoAleatorio();
 
     // define a posição lateral a qual o mosquito vai "spawnar"
     mosquito.style.left = posicaoX + 'px';
@@ -47,4 +47,21 @@ function posicaoRandomica(){
     // Adiciona um "filho dentro do body"
     document.body.appendChild(mosquito);
 
+}
+
+function tamanhoAleatorio(){
+
+    //Math floor, arredenda valor para baixo
+    var classe = Math.floor(Math.random() * 3);
+    //os tamanhos agora sao geradas randomicaamente
+    
+    switch(classe){
+        case 0:
+            return 'mosquito1';
+// usando o return nao é necessario usar o break
+        case 1:
+            return 'mosquito2';
+        case 2:
+            return 'mosquito3';
+    }
 }
