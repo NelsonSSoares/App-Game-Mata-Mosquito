@@ -17,6 +17,10 @@
     
    
     <!-- a tag script pode invocar apenas funcoes tambem ao inves de scripts completos-->
-    <script>posicaoRandomica()</script>
+    <script>
+        setInterval( function() {
+            posicaoRandomica()
+        }, 1000);
+    </script>
 </body>
 </html>
