@@ -1,6 +1,6 @@
 var altura = 0;
 var largura = 0;
-
+var vidas = 1;
 
 
 
@@ -18,7 +18,15 @@ function posicaoRandomica(){
     //o if testa se o elemento ja existe, caso exista, o returno sera 'true'
     if(document.getElementById('mosquito')){ 
         // SE FOR TRUE REMOVE O ELEMENTO, SE NAO SERA CRIADO FORA DESTA CONDIÇÃO
-       document.getElementById('mosquito').remove() 
+       document.getElementById('mosquito').remove();
+       //contatena e incrementa a varavel para que possa acessar os ID's v1 v2 v3
+        if(vidas > 3){
+            alert('GAAME OVER!!');
+        }else{
+            document.getElementById('v' + vidas).src = "images/coracao_vazio.png"
+            vidas++
+        }
+       
     }
     
 
@@ -54,7 +62,11 @@ function posicaoRandomica(){
     mosquito.style.position = 'absolute';
 
     // aplica um ID na varivel
-    mosquito.id = 'mosquito' 
+    mosquito.id = 'mosquito'
+
+    mosquito.onclick = function() {
+       this.remove(); //o this indica ao metodo remove que é este mesmo elemento html que queremos indicar
+    } 
 
     // Adiciona um "filho dentro do body"
     document.body.appendChild(mosquito);
