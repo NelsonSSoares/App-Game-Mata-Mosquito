@@ -32,8 +32,9 @@ function posicaoRandomica(){
     // atribui o caminho da imagem na variavel
     mosquito.src = 'images/mosca.png';
 
-    //Aplica uma class criada na folha de estilo
-    mosquito.className = tamanhoAleatorio();
+    //Aplica uma class criada na folha de estilo e selecinadaa pela funcao
+    mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio();
+    // é possivel executaar 2 funções em um só chamada
 
     // define a posição lateral a qual o mosquito vai "spawnar"
     mosquito.style.left = posicaoX + 'px';
@@ -46,6 +47,8 @@ function posicaoRandomica(){
 
     // Adiciona um "filho dentro do body"
     document.body.appendChild(mosquito);
+
+
 
 }
 
@@ -63,5 +66,17 @@ function tamanhoAleatorio(){
             return 'mosquito2';
         case 2:
             return 'mosquito3';
+    }
+}
+
+function ladoAleatorio(){
+    var lado = Math.floor(Math.random() * 2);
+
+    switch(lado) {
+        case 0:
+            return 'ladoA';
+        
+        case 1:
+            return 'ladoB';
     }
 }
