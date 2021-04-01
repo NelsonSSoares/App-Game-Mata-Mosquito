@@ -22,13 +22,16 @@
         </div>
 
         <div class="cronometro">
-            Tempo Restante:  ?
+            Tempo Restante:  <span id="cronometro"></span>
         </div>
     </div>
    
     <!-- a tag script pode invocar apenas funcoes tambem ao inves de scripts completos-->
     <script>
-        setInterval( function() {
+
+        document.getElementById('cronometro').innerHTML = tempo;
+
+        var criaMosquito = setInterval( function() {
             posicaoRandomica()
         }, 1000);
     </script>
