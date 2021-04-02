@@ -1,39 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Game - Mata Mosquito</title>
-    <!--Link do Estilo-->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <!--Link do Script Jogo-->
-    <script src="js/jogo.js"></script>
-</head>
-<!-- toda vez que redimencionaar o body, execute funçãao-->
-<body onresize="ajustaTamanhoPalcoJogo()">
-    
-    <div class="painel">
-        <div class="vidas">
-            <img id="v1" src="images/coracao_cheio.png">
-            <img id="v2" src="images/coracao_cheio.png">
-            <img id="v3" src="images/coracao_cheio.png">
-        </div>
+    <title>Mata Mosquito - Game!!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-        <div class="cronometro">
-            Tempo Restante:  <span id="cronometro"></span>
-        </div>
-    </div>
-   
-    <!-- a tag script pode invocar apenas funcoes tambem ao inves de scripts completos-->
     <script>
+        function iniciarJogo(){
+            var nivel = document.getElementById('nivel').value
 
-        document.getElementById('cronometro').innerHTML = tempo;
-
-        var criaMosquito = setInterval( function() {
-            posicaoRandomica()
-        }, 1000);
+            if( nivel === ''){
+                alert('Selecione um Nivel para iniciar o jogo!');
+                return false;
+            }else{
+                alert(nivel);
+            }
+        }
     </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <div class="d-flex justify-content-center">
+                    <img src="images/game.png">
+                </div>
+
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col">
+
+                <div class="d-flex justify-content-center">
+                  <div class="mb-2">
+                    <select class="form-control" id="nivel">
+                        <option value="">-- Selecione o Nível</option>
+                        <option value="normal">Normal</option>
+                        <option value="dificil">Dificil</option>
+                        <option value="punk">Punk</option>
+                    </select>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="bt btn-success btn-lg" onclick="iniciarJogo()">Iniciar Jogo</button>
+                </div>
+
+            </div>
+        </div>
+
+        
+    </div>
+
 </body>
 </html>
