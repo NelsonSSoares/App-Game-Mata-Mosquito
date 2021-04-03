@@ -1,8 +1,20 @@
 var altura = 0;
 var largura = 0;
 var vidas = 1;
-var tempo = 10;
+var tempo = 15;
+var criaMosquitoTempo = 1500;
 
+var nivel = window.location.search ;          // search rerornaa apena a query string da url, a direita do ?
+
+nivel = nivel.replace('?',''); // substitui a string da direita pelo da esquerda
+
+if(nivel === 'normal'){
+    criaMosquitoTempo = 1500;
+}else if(nivel === 'dificil'){
+    criaMosquitoTempo = 1000;
+}else if(nivel === 'punk'){
+    criaMosquitoTempo = 750;
+}
 
 function ajustaTamanhoPalcoJogo(){
      altura = window.innerHeight;// revela tamanho da area visivel, o tamanho da janela
@@ -10,7 +22,7 @@ function ajustaTamanhoPalcoJogo(){
      console.log(largura, altura); // 876 x 400
 }
 
-ajustaTamanhoPalcoJogo()
+ajustaTamanhoPalcoJogo();
 
 var cronometro = setInterval(function() {
     tempo--
@@ -36,7 +48,7 @@ function posicaoRandomica(){
             window.location.href = 'fim_de_jogo.html'
         }else{
             document.getElementById('v' + vidas).src = "images/coracao_vazio.png"
-            vidas++
+            vidas++;
         }
        
     }
